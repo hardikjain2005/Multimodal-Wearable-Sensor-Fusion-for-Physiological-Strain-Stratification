@@ -55,18 +55,20 @@
 ## 🧭 Pipeline
 
 ```mermaid
-flowchart LR
-    A[18 AIDLAB sessions<br/>sleep · yoga · hike · squash] --> B[Inspect<br/>schemas, rates,<br/>sensor availability]
-    B --> C[Align on shared clock<br/>no resampling]
-    C --> D[60-s non-overlapping<br/>windows + QC<br/>3,192 windows]
-    D --> E[Features<br/>HR · HRV from own<br/>R-peak detector · ECG quality]
-    E --> F{Session-level split<br/>fixed before training}
-    F --> G[Development<br/>11 sessions<br/>nested grouped CV]
-    F --> H[Held-out tests<br/>later sessions · other person<br/>evaluated once]
-    G --> I[Baseline vs 6 models<br/>+ ablation]
-    I --> J[Locked proposed model]
-    J --> H
-    J --> K[SHAP + session-level<br/>statistics + insights]
+flowchart TB
+    subgraph S1 ["① Data"]
+        direction LR
+        A["18 AIDLAB sessions<br/>sleep · yoga · hike · squash"] --> B["Inspect schemas,<br/>rates, sensors"] --> C["Align on shared clock<br/>(no resampling)"] --> D["60-s windows + QC<br/>3,192 windows"]
+    end
+    subgraph S2 ["② Features & models"]
+        direction LR
+        E["HR · HRV (own R-peak<br/>detector) · ECG quality"] --> F["Session-level split<br/>fixed before training"] --> G["Baseline vs 6 models<br/>nested grouped CV + ablation"] --> H["Locked proposed<br/>RF+GB soft voting"]
+    end
+    subgraph S3 ["③ Evaluation"]
+        direction LR
+        I["Held-out tests, run once<br/>later sessions · other person"] --> J["SHAP + session-level<br/>statistics"] --> K["Healthcare<br/>insights"]
+    end
+    S1 --> S2 --> S3
 ```
 
 <details>
