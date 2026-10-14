@@ -94,8 +94,9 @@ const title = [
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 200, after: 600 },
     children: [new TextRun({ font: FONT, text: "A Hybrid HRV-Based Risk Monitoring Approach", size: 30, color: "52514E" })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ font: FONT, text: "Healthcare Analytics Mini Project — Project Report", size: 26 })] }),
-  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 900 }, children: [new TextRun({ font: FONT, text: "Submitted by: Hardik Jain", size: 24 })] }),
-  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ font: FONT, text: "PRN: 23070521056", size: 24 })] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 900 }, children: [new TextRun({ font: FONT, text: "Submitted by", size: 24, bold: true })] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ font: FONT, text: "Hardik Jain (PRN: 23070521056)", size: 24 })] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, children: [new TextRun({ font: FONT, text: "Nikhil Halambi (PRN: 23070521099)", size: 24 })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 300 }, children: [new TextRun({ font: FONT, text: "Course Instructor: Dr. Prerna", size: 24 })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 300 }, children: [new TextRun({ font: FONT, text: "October 2026", size: 24 })] }),
   new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 1400 },
@@ -309,7 +310,7 @@ const refs = [
 ];
 
 const doc = new Document({
-  creator: "Hardik Jain",
+  creator: "Hardik Jain, Nikhil Halambi",
   title: "Multimodal Wearable Sensor Fusion for Physiological Strain Stratification",
   styles: {
     default: { document: { run: { font: FONT, size: 20 } } },
