@@ -89,7 +89,7 @@ with left:
     st.markdown(f"#### Predicted strain level")
     st.markdown(
         f"<div style='padding:18px 22px;border-radius:12px;background:{CLASS_COLORS[pred]}1A;"
-        f"border:2px solid {CLASS_COLORS[pred]}'><div style='font-size:2.6rem;font-weight:700;"
+        f"border:2px solid {CLASS_COLORS[pred]}'><div style='font-size:clamp(1.5rem, 3.2vw, 2.6rem);font-weight:700;white-space:nowrap;"
         f"color:{CLASS_COLORS[pred]};line-height:1.1'>{pred.upper()}</div>"
         f"<div style='font-size:1rem;margin-top:4px'>probability {conf:.0%} · proposed multimodal model</div></div>",
         unsafe_allow_html=True)

@@ -6,6 +6,7 @@
 
 *Can a chest-strap wearable tell how hard the body is working better by fusing several signals than by using heart rate alone?*
 
+[![Live dashboard](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://wearable-strain-dashboard.streamlit.app)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hardikjain2005/Multimodal-Wearable-Sensor-Fusion-for-Physiological-Strain-Stratification/blob/main/notebooks/run_on_colab.ipynb)
 [![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.9-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
@@ -55,7 +56,7 @@
 
 ## 🖥️ Interactive dashboard
 
-A Streamlit app runs the locked models in the browser. **Live app:** _link added after deployment_
+A Streamlit app runs the locked models in the browser. **Live app: https://wearable-strain-dashboard.streamlit.app**. It works in any browser, with nothing to install.
 
 | Page | You give | You get |
 |---|---|---|
