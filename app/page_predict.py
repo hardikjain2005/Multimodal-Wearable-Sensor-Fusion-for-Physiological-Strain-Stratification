@@ -1,4 +1,6 @@
 """Page 1 — interactive prediction from user-entered physiological values."""
+import math
+
 import altair as alt
 import numpy as np
 import pandas as pd
@@ -8,7 +10,8 @@ from app.common import (CLASS_COLORS, CLASS_DOMAIN, CLASS_RANGE, CORE, LABELS, M
                         dev_sample, disclaimer, explain, predict_proba, reference)
 
 ref = reference()
-PRESET_NAMES = {"Low": "😴 Typical sleep minute (Low)", "Moderate": "🧘 Typical yoga minute (Moderate)",
+PRESET_NAMES = {"Custom": "✏️ My own values", "Low": "😴 Typical sleep minute (Low)",
+                "Moderate": "🧘 Typical yoga minute (Moderate)",
                 "High": "🥾 Typical hike / squash minute (High)"}
 
 # Inputs the locked models actually use (6 further HR statistics are removed by the model's
@@ -38,23 +41,38 @@ HELP = {
 }
 
 
+def snap(x: float, step: float, how=round) -> float:
+    """Put a value exactly on the slider's step grid (otherwise the slider snaps it itself and
+    reports that as a user change)."""
+    return round(how(x / step) * step, 6)
+
+
 def apply_preset():
+    if st.session_state.preset == "Custom":
+        return  # keep whatever the user has set
     preset = ref["presets"][st.session_state.preset]
     for feats in GROUPS.values():
-        for f, _ in feats:
-            st.session_state[f] = float(preset[f])
+        for f, step in feats:
+            st.session_state[f] = snap(float(preset[f]), step)
 
 
 st.title("🎛️ Predict physiological strain")
-st.markdown("Describe **one minute** of chest-strap data and the model predicts the activity-derived strain "
-            "level. Start from a typical minute, then move the sliders to see how the prediction changes.")
+st.markdown("Enter **one minute** of chest-strap measurements using the sliders. The model predicts the "
+            "activity-derived strain level, and the result below updates as soon as you change a value.")
 
 if "preset" not in st.session_state:
     st.session_state.preset = "Moderate"
     apply_preset()
 
-st.radio("Start from", list(PRESET_NAMES), format_func=PRESET_NAMES.get, key="preset", horizontal=True,
-         on_change=apply_preset)
+def mark_custom():
+    """Any slider change means the inputs are no longer a typical example minute."""
+    st.session_state.preset = "Custom"
+
+
+st.radio("Load example values (optional)", list(PRESET_NAMES), format_func=PRESET_NAMES.get, key="preset",
+         horizontal=True, on_change=apply_preset)
+st.caption("An example fills all 12 sliders with the typical values of a real minute from the training data. "
+           "Move any slider to enter your own values; the selection then switches to *My own values*.")
 
 values = {}
 cols = st.columns(3, gap="large")
@@ -68,8 +86,10 @@ for col, (group, feats) in zip(cols, GROUPS.items()):
             lo, hi = r["p01"] - pad, r["p99"] + pad
             if r["min"] >= 0:
                 lo = max(0.0, lo)
+            lo, hi = snap(lo, step, math.floor), snap(hi, step, math.ceil)
             fmt = "%.3f" if step < 0.01 else ("%.2f" if step < 0.5 else "%.1f")
             values[f] = st.slider(LABELS[f], float(lo), float(hi), step=float(step), key=f, format=fmt,
+                                  on_change=mark_custom,
                                   help=HELP[f])
 
 # Derived HR statistics (not used by the models after their redundancy filter; kept for completeness)
