@@ -1,0 +1,85 @@
+test_set,model,feature_set,session_id,true_label,n,pred_Low_pct,pred_Moderate_pct,pred_High_pct
+test_temporal,Logistic Regression,HR only,hike_2026-06-07_1h22m,High,74,9.5,45.9,44.6
+test_temporal,Logistic Regression,HR only,sleep_2026-04-21_5h50m,Low,349,96.0,4.0,0.0
+test_temporal,Logistic Regression,HR only,yoga_2026-05-05_73min,Moderate,62,43.5,41.9,14.5
+test_cross_person,Logistic Regression,HR only,sleep_2026-10-03_6h30m,Low,390,96.9,3.1,0.0
+test_cross_person,Logistic Regression,HR only,squash_2026-04-27_60min,High,60,0.0,13.3,86.7
+test_cross_person,Logistic Regression,HR only,squash_2026-05-25_61min_four_games,High,61,8.2,9.8,82.0
+test_cross_person,Logistic Regression,HR only,squash_2026-06-01_60min_four_games,High,60,3.3,15.0,81.7
+test_temporal,Decision Tree,HR only,hike_2026-06-07_1h22m,High,74,20.3,55.4,24.3
+test_temporal,Decision Tree,HR only,sleep_2026-04-21_5h50m,Low,349,95.7,4.3,0.0
+test_temporal,Decision Tree,HR only,yoga_2026-05-05_73min,Moderate,62,30.6,66.1,3.2
+test_cross_person,Decision Tree,HR only,sleep_2026-10-03_6h30m,Low,390,99.7,0.3,0.0
+test_cross_person,Decision Tree,HR only,squash_2026-04-27_60min,High,60,3.3,16.7,80.0
+test_cross_person,Decision Tree,HR only,squash_2026-05-25_61min_four_games,High,61,13.1,16.4,70.5
+test_cross_person,Decision Tree,HR only,squash_2026-06-01_60min_four_games,High,60,8.3,15.0,76.7
+test_temporal,Random Forest,HR only,hike_2026-06-07_1h22m,High,74,4.1,50.0,45.9
+test_temporal,Random Forest,HR only,sleep_2026-04-21_5h50m,Low,349,99.4,0.6,0.0
+test_temporal,Random Forest,HR only,yoga_2026-05-05_73min,Moderate,62,38.7,37.1,24.2
+test_cross_person,Random Forest,HR only,sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Random Forest,HR only,squash_2026-04-27_60min,High,60,0.0,5.0,95.0
+test_cross_person,Random Forest,HR only,squash_2026-05-25_61min_four_games,High,61,6.6,8.2,85.2
+test_cross_person,Random Forest,HR only,squash_2026-06-01_60min_four_games,High,60,3.3,13.3,83.3
+test_temporal,Gradient Boosting,HR only,hike_2026-06-07_1h22m,High,74,5.4,50.0,44.6
+test_temporal,Gradient Boosting,HR only,sleep_2026-04-21_5h50m,Low,349,99.4,0.6,0.0
+test_temporal,Gradient Boosting,HR only,yoga_2026-05-05_73min,Moderate,62,38.7,40.3,21.0
+test_cross_person,Gradient Boosting,HR only,sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Gradient Boosting,HR only,squash_2026-04-27_60min,High,60,0.0,6.7,93.3
+test_cross_person,Gradient Boosting,HR only,squash_2026-05-25_61min_four_games,High,61,6.6,9.8,83.6
+test_cross_person,Gradient Boosting,HR only,squash_2026-06-01_60min_four_games,High,60,3.3,15.0,81.7
+test_temporal,Ensemble RF+GB (soft voting),HR only,hike_2026-06-07_1h22m,High,74,5.4,47.3,47.3
+test_temporal,Ensemble RF+GB (soft voting),HR only,sleep_2026-04-21_5h50m,Low,349,99.4,0.6,0.0
+test_temporal,Ensemble RF+GB (soft voting),HR only,yoga_2026-05-05_73min,Moderate,62,40.3,37.1,22.6
+test_cross_person,Ensemble RF+GB (soft voting),HR only,sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Ensemble RF+GB (soft voting),HR only,squash_2026-04-27_60min,High,60,0.0,6.7,93.3
+test_cross_person,Ensemble RF+GB (soft voting),HR only,squash_2026-05-25_61min_four_games,High,61,6.6,9.8,83.6
+test_cross_person,Ensemble RF+GB (soft voting),HR only,squash_2026-06-01_60min_four_games,High,60,3.3,13.3,83.3
+test_temporal,Ensemble RF+GB (stacking),HR only,hike_2026-06-07_1h22m,High,74,5.4,62.2,32.4
+test_temporal,Ensemble RF+GB (stacking),HR only,sleep_2026-04-21_5h50m,Low,349,100.0,0.0,0.0
+test_temporal,Ensemble RF+GB (stacking),HR only,yoga_2026-05-05_73min,Moderate,62,38.7,50.0,11.3
+test_cross_person,Ensemble RF+GB (stacking),HR only,sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Ensemble RF+GB (stacking),HR only,squash_2026-04-27_60min,High,60,0.0,8.3,91.7
+test_cross_person,Ensemble RF+GB (stacking),HR only,squash_2026-05-25_61min_four_games,High,61,6.6,14.8,78.7
+test_cross_person,Ensemble RF+GB (stacking),HR only,squash_2026-06-01_60min_four_games,High,60,1.7,18.3,80.0
+test_temporal,Logistic Regression,HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,10.8,14.9,74.3
+test_temporal,Logistic Regression,HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,98.3,1.7,0.0
+test_temporal,Logistic Regression,HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,14.5,82.3,3.2
+test_cross_person,Logistic Regression,HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Logistic Regression,HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,6.7,0.0,93.3
+test_cross_person,Logistic Regression,HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,14.8,1.6,83.6
+test_cross_person,Logistic Regression,HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,18.3,1.7,80.0
+test_temporal,Decision Tree,HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,2.7,17.6,79.7
+test_temporal,Decision Tree,HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,98.0,2.0,0.0
+test_temporal,Decision Tree,HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,8.1,83.9,8.1
+test_cross_person,Decision Tree,HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Decision Tree,HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,5.0,5.0,90.0
+test_cross_person,Decision Tree,HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,13.1,6.6,80.3
+test_cross_person,Decision Tree,HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,18.3,1.7,80.0
+test_temporal,Random Forest,HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,2.7,12.2,85.1
+test_temporal,Random Forest,HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,99.7,0.3,0.0
+test_temporal,Random Forest,HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,17.7,75.8,6.5
+test_cross_person,Random Forest,HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Random Forest,HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,1.7,0.0,98.3
+test_cross_person,Random Forest,HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,13.1,1.6,85.2
+test_cross_person,Random Forest,HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,6.7,0.0,93.3
+test_temporal,Gradient Boosting,HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,2.7,14.9,82.4
+test_temporal,Gradient Boosting,HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,99.7,0.3,0.0
+test_temporal,Gradient Boosting,HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,14.5,80.6,4.8
+test_cross_person,Gradient Boosting,HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Gradient Boosting,HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,1.7,15.0,83.3
+test_cross_person,Gradient Boosting,HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,8.2,1.6,90.2
+test_cross_person,Gradient Boosting,HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,3.3,0.0,96.7
+test_temporal,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,2.7,13.5,83.8
+test_temporal,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,99.7,0.3,0.0
+test_temporal,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,14.5,82.3,3.2
+test_cross_person,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,1.7,10.0,88.3
+test_cross_person,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,6.6,1.6,91.8
+test_cross_person,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,3.3,0.0,96.7
+test_temporal,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),hike_2026-06-07_1h22m,High,74,2.7,13.5,83.8
+test_temporal,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),sleep_2026-04-21_5h50m,Low,349,99.7,0.3,0.0
+test_temporal,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),yoga_2026-05-05_73min,Moderate,62,14.5,83.9,1.6
+test_cross_person,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),sleep_2026-10-03_6h30m,Low,390,100.0,0.0,0.0
+test_cross_person,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),squash_2026-04-27_60min,High,60,5.0,8.3,86.7
+test_cross_person,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),squash_2026-05-25_61min_four_games,High,61,14.8,3.3,82.0
+test_cross_person,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),squash_2026-06-01_60min_four_games,High,60,16.7,0.0,83.3

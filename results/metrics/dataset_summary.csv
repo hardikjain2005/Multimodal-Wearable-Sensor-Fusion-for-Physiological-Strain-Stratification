@@ -1,0 +1,9 @@
+split,strain_label,sessions,windows
+development,High,5,874
+development,Low,3,1044
+development,Moderate,3,218
+test_cross_person,High,3,181
+test_cross_person,Low,1,390
+test_temporal,High,1,74
+test_temporal,Low,1,349
+test_temporal,Moderate,1,62

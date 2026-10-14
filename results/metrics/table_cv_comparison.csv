@@ -1,0 +1,27 @@
+experiment,model,feature_set,imbalance,n_features,accuracy,precision_macro,recall_macro,f1_macro,f1_macro_fold_std,balanced_accuracy,roc_auc_ovr_macro,sensitivity_Low,sensitivity_Moderate,sensitivity_High
+main,Logistic Regression,HR only,balanced,9,0.742,0.693,0.699,0.663,0.062,0.699,0.874,0.803,0.587,0.707
+main,Decision Tree,HR only,balanced,9,0.718,0.691,0.691,0.648,0.093,0.691,0.878,0.787,0.628,0.658
+main,Random Forest,HR only,balanced,9,0.775,0.68,0.687,0.671,0.069,0.687,0.889,0.813,0.436,0.814
+main,Gradient Boosting,HR only,balanced,9,0.771,0.669,0.677,0.663,0.077,0.677,0.881,0.823,0.408,0.799
+main,Ensemble RF+GB (soft voting),HR only,balanced,9,0.776,0.67,0.676,0.664,0.076,0.676,0.89,0.827,0.39,0.812
+main,Ensemble RF+GB (stacking),HR only,balanced,9,0.746,0.683,0.684,0.657,0.059,0.684,0.862,0.823,0.518,0.711
+main,Logistic Regression,HR + HRV,balanced,13,0.76,0.72,0.75,0.692,0.013,0.75,0.928,0.828,0.739,0.685
+main,Decision Tree,HR + HRV,balanced,13,0.716,0.726,0.742,0.663,0.06,0.742,0.901,0.778,0.835,0.612
+main,Random Forest,HR + HRV,balanced,13,0.782,0.716,0.745,0.703,0.075,0.745,0.922,0.816,0.642,0.777
+main,Gradient Boosting,HR + HRV,balanced,13,0.807,0.714,0.735,0.71,0.065,0.735,0.905,0.828,0.528,0.851
+main,Ensemble RF+GB (soft voting),HR + HRV,balanced,13,0.806,0.718,0.743,0.714,0.068,0.743,0.922,0.831,0.56,0.838
+main,Ensemble RF+GB (stacking),HR + HRV,balanced,13,0.777,0.726,0.754,0.703,0.061,0.754,0.907,0.83,0.697,0.735
+main,Logistic Regression,HR + HRV + ECG (multimodal core),balanced,18,0.832,0.76,0.825,0.766,0.053,0.825,0.936,0.921,0.826,0.727
+main,Decision Tree,HR + HRV + ECG (multimodal core),balanced,18,0.677,0.691,0.677,0.618,0.111,0.677,0.867,0.793,0.706,0.532
+main,Random Forest,HR + HRV + ECG (multimodal core),balanced,18,0.826,0.749,0.802,0.759,0.112,0.802,0.956,0.825,0.729,0.851
+main,Gradient Boosting,HR + HRV + ECG (multimodal core),balanced,18,0.848,0.789,0.822,0.8,0.109,0.822,0.951,0.831,0.739,0.896
+main,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),balanced,18,0.85,0.791,0.824,0.802,0.109,0.824,0.96,0.831,0.743,0.898
+main,Ensemble RF+GB (stacking),HR + HRV + ECG (multimodal core),balanced,18,0.83,0.756,0.814,0.769,0.091,0.814,0.919,0.83,0.766,0.846
+ablation,Ensemble RF+GB (soft voting),Core − HR (HRV + ECG),balanced,9,0.854,0.797,0.826,0.807,0.087,0.826,0.957,0.844,0.739,0.895
+ablation,Ensemble RF+GB (soft voting),Core − HRV (HR + ECG),balanced,14,0.824,0.757,0.796,0.767,0.103,0.796,0.948,0.809,0.706,0.872
+ablation,Ensemble RF+GB (soft voting),Core − ECG (HR + HRV),balanced,13,0.806,0.718,0.743,0.714,0.068,0.743,0.922,0.831,0.56,0.838
+imbalance,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),none,18,0.851,0.792,0.815,0.799,0.095,0.815,0.958,0.841,0.706,0.898
+imbalance,Ensemble RF+GB (soft voting),HR + HRV + ECG (multimodal core),smote,18,0.84,0.772,0.826,0.787,0.108,0.826,0.96,0.827,0.78,0.871
+resp_addon,Logistic Regression,HR only,balanced,9,0.814,0.735,0.801,0.748,0.094,0.801,0.948,0.817,0.821,0.766
+resp_addon,Ensemble RF+GB (soft voting),Core,balanced,18,0.829,0.805,0.887,0.819,0.126,0.887,0.972,0.796,0.936,0.928
+resp_addon,Ensemble RF+GB (soft voting),Core + RESP,balanced,22,0.838,0.811,0.893,0.826,0.118,0.893,0.981,0.807,0.945,0.928

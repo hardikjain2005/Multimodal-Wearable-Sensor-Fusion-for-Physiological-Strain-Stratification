@@ -1,0 +1,5 @@
+activity,windows,hr_ecg_vs_device_median_abs_diff_bpm,rmssd_ecg_vs_deviceRR_pearson_r,rmssd_ecg_vs_deviceRR_median_abs_diff_ms,mean_rr_ecg_vs_deviceRR_pearson_r
+hike,837,0.613,0.692,6.738,0.998
+sleep,1783,0.42,0.956,0.39,1.0
+squash,292,0.924,0.527,9.875,0.997
+yoga,280,0.856,0.94,2.936,1.0
