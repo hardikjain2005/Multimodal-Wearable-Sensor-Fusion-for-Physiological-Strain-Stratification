@@ -15,3 +15,6 @@ __pycache__/
 results/models/*.joblib
 !results/models/Logistic_Regression__HR_only.joblib
 !results/models/Ensemble_RFplusGB_soft_voting__HR_plus_HRV_plus_ECG_multimodal_core.joblib
+
+# local tooling
+.claude/

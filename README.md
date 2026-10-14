@@ -53,6 +53,28 @@
 
 ---
 
+## 🖥️ Interactive dashboard
+
+A Streamlit app runs the locked models in the browser. **Live app:** _link added after deployment_
+
+| Page | You give | You get |
+|---|---|---|
+| 🎛️ **Predict strain** | One minute of physiology: start from a typical sleep, yoga or hike/squash minute, then move 12 sliders (HR, HRV, ECG quality) | The predicted strain level and class probabilities. It also shows the HR-only baseline's answer, a per-input SHAP explanation, an out-of-range warning, and where your input sits among the training data. |
+| 📼 **Analyse a recording** | An AIDLAB export (ZIP or `ecg.csv` + `pulse.csv`), or an example fetched from the official AIDLAB source | A strain prediction for every minute, a probability timeline, an HR chart, a summary, and a CSV download |
+| 📊 **Model results** | A choice of evaluation set and metric | Interactive comparisons of every model and feature set, the ablation, SHAP results and the held-out test sessions |
+| ℹ️ **About** | – | The method, the data and the limitations |
+
+Run it locally:
+
+```bash
+.venv/bin/streamlit run streamlit_app.py
+```
+
+The app needs only the committed files: the trained models, small derived-feature assets and the result tables.
+It does **not** need the raw data.
+
+---
+
 ## 🧭 Pipeline
 
 ```mermaid
@@ -258,6 +280,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 │   ├── evaluation.py           # grouped folds, nested CV, metrics, correlation filter
 │   ├── statistics.py           # session-level Kruskal-Wallis + Holm post-hoc
 │   └── visualization.py        # all figures
+├── streamlit_app.py            # interactive dashboard (entry point)
+├── app/                        # dashboard pages + derived-feature assets
 ├── notebooks/run_on_colab.ipynb  # one-click Colab: explore results or reproduce everything
 ├── scripts/                    # data download + dataset inspection scripts
 ├── docs/                       # dataset inspection findings, pre-registered analysis plan
