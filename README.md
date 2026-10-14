@@ -6,6 +6,7 @@
 
 *Can a chest-strap wearable tell how hard the body is working better by fusing several signals than by using heart rate alone?*
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hardikjain2005/Multimodal-Wearable-Sensor-Fusion-for-Physiological-Strain-Stratification/blob/main/notebooks/run_on_colab.ipynb)
 [![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.9-F7931E?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![SHAP](https://img.shields.io/badge/Explainability-SHAP-8A2BE2)](https://github.com/shap/shap)
@@ -194,6 +195,14 @@ exercise-type labels, so it cannot test a physiological model.</sub>
 
 ## 🚀 Quickstart
 
+**No setup:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hardikjain2005/Multimodal-Wearable-Sensor-Fusion-for-Physiological-Strain-Stratification/blob/main/notebooks/run_on_colab.ipynb)
+The notebook has two paths:
+
+- **Explore the results:** about 1 minute, with no data download.
+- **Reproduce everything:** downloads the AIDLAB data and reruns the full pipeline on Colab.
+
+**Run locally:**
+
 ```bash
 git clone https://github.com/hardikjain2005/Multimodal-Wearable-Sensor-Fusion-for-Physiological-Strain-Stratification.git
 ```
@@ -249,6 +258,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 │   ├── evaluation.py           # grouped folds, nested CV, metrics, correlation filter
 │   ├── statistics.py           # session-level Kruskal-Wallis + Holm post-hoc
 │   └── visualization.py        # all figures
+├── notebooks/run_on_colab.ipynb  # one-click Colab: explore results or reproduce everything
 ├── scripts/                    # data download + dataset inspection scripts
 ├── docs/                       # dataset inspection findings, pre-registered analysis plan
 ├── report/                     # project report (.docx), report builder, presentation outline

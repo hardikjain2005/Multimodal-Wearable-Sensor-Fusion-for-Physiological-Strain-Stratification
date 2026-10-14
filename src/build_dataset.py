@@ -40,6 +40,37 @@ def build(verbose: bool = True) -> pd.DataFrame:
     return windows
 
 
+INVENTORY_STREAMS = ["ecg", "rr", "pulse", "respiration", "temperature", "acceleration",
+                     "hrv", "respiration-rate", "body-position", "steps"]
+
+
+def session_inventory() -> pd.DataFrame:
+    """Per session: activity, proxy label, pseudo-subject, duration, and for each stream the
+    number of rows and time coverage (share of 1-s bins of the session with >= 1 sample).
+    Written to results/metrics/session_inventory.csv."""
+    rows = []
+    for d in list_session_dirs(RAW_SESSIONS_DIR):
+        s = load_session(d, streams=INVENTORY_STREAMS)
+        r = dict(session_id=s.session_id, activity=s.activity, strain_label=s.strain_label,
+                 subject=s.subject, duration_min=round(s.duration_min, 1))
+        n_sec = int((s.end_ms - s.start_ms) // 1000)
+        for name in INVENTORY_STREAMS:
+            if name in s.streams:
+                t = s.streams[name]["timestamp"].to_numpy(np.int64)
+                sec = np.unique((t - s.start_ms) // 1000)
+                sec = sec[(sec >= 0) & (sec < n_sec)]
+                r[f"{name}_rows"] = len(t)
+                # coverage for continuous streams; slow streams (<1 Hz) are naturally sparse
+                r[f"{name}_cov"] = round(len(sec) / n_sec, 3)
+            else:
+                r[f"{name}_rows"] = 0
+        rows.append(r)
+    inv = pd.DataFrame(rows)
+    METRICS_DIR.mkdir(parents=True, exist_ok=True)
+    inv.to_csv(METRICS_DIR / "session_inventory.csv", index=False)
+    return inv
+
+
 def quality_control(windows: pd.DataFrame) -> pd.DataFrame:
     """Label-blind quality rules applied identically to every session:
     1. ECG coverage >= 90 % of expected samples (contact loss / recording gaps)

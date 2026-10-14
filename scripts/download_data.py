@@ -6,6 +6,7 @@ Raw data is not redistributed in this repository (most session archives state no
 Source catalogue: https://aidlab.com/datasets
 """
 import shutil
+import subprocess
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -38,13 +39,20 @@ HAR = "AIDLAB-HAR-DATASET_v3.zip"
 
 
 def fetch(url: str, dest: Path):
+    """Download with curl when available (retries + resume; uses the system certificate store,
+    which python.org builds on macOS lack until 'Install Certificates' is run), else urllib."""
     if dest.exists():
         return
     dest.parent.mkdir(parents=True, exist_ok=True)
-    print("downloading", url)
-    with urllib.request.urlopen(url) as r, open(dest.with_suffix(".part"), "wb") as f:
-        shutil.copyfileobj(r, f)
-    dest.with_suffix(".part").rename(dest)
+    part = dest.with_suffix(".part")
+    print("downloading", url, flush=True)
+    if shutil.which("curl"):
+        subprocess.run(["curl", "-sSfL", "--retry", "8", "--retry-all-errors", "-C", "-", "-o", str(part), url],
+                       check=True)
+    else:
+        with urllib.request.urlopen(url) as r, open(part, "wb") as f:
+            shutil.copyfileobj(r, f)
+    part.rename(dest)
 
 
 def safe_extract(zip_path: Path, target: Path):

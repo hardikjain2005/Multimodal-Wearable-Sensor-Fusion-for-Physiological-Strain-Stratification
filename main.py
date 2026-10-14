@@ -25,10 +25,10 @@ def load_clean() -> pd.DataFrame:
 # ----------------------------------------------------------------------------- data
 def stage_data():
     from src import build_dataset, visualization as viz
+    inv = build_dataset.session_inventory()
     windows = build_dataset.build()
     clean = build_dataset.quality_control(windows)
 
-    inv = pd.read_csv(METRICS_DIR / "session_inventory.csv")
     viz.plot_sensor_availability(inv, ["ecg", "pulse", "rr", "respiration", "temperature", "acceleration"])
     viz.plot_session_overview(clean)
     viz.plot_class_distribution(clean)
